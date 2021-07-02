@@ -1,5 +1,38 @@
 # kali-dockerfile
-My preferred Kali Linux Docker image customization
+My preferred Kali Linux Docker image customization. This will build a Kali Linux Docker image that contains these pentesting tools and resources:
+
+- cadaver
+- dirb
+- exploitdb 
+- exploitdb-bin-sploits 
+- git 
+- gdb 
+- gobuster 
+- hashcat 
+- hydra 
+- man-db 
+- medusa 
+- minicom 
+- nasm 
+- nikto 
+- nmap 
+- sqlmap 
+- sslscan 
+- webshells 
+- wpscan 
+- wordlists
+
+Plus:
+- ZSH shell with custom settings
+- pciutils 
+- usbutils
+- Configure proxychains with Tor
+- [SecLists](https://github.com/danielmiessler/SecLists)
+- [PowerSploit](https://github.com/PowerShellMafia/PowerSploit)
+- [hashcat](https://github.com/hashcat/hashcat)
+- [LinEnum](https://github.com/rebootuser/LinEnum)
+- [dirsearch](https://github.com/maurosoria/dirsearch)
+- [sherlock](https://github.com/sdushantha/sherlock.git)
 
 
 ## Clone this repo
