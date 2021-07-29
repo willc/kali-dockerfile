@@ -6,8 +6,12 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y update && apt-get -y dist-upgrade && apt-get -y autoremove && apt-get clean
 
 # Install ZSH shell with custom settings and set it as default shell
-RUN apt-get -y install git zsh wget && wget --no-check-certificate <https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh> -O - | /bin/bash
-COPY config/.zshrc /root/.zshrc
+#RUN apt-get -y install git zsh wget && wget --no-check-certificate <https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh> -O - | /bin/bash
+#COPY config/.zshrc /root/.zshrc
+# Something changed upstream and the above stopped working. So the below works instead, for installing zsh:
+
+RUN apt-get -y install git zsh wget curl && curl -Lo install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+RUN sh install.sh --unattended
 
 # Update all the things again, then install my personal favorite tools
 RUN apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y && apt-get install -y cadaver dirb exploitdb exploitdb-bin-sploits git gdb gobuster hashcat hydra man-db medusa minicom nasm nikto nmap sqlmap sslscan webshells wpscan wordlists
